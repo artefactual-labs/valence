@@ -1,0 +1,13 @@
+.git
+.gitmodules
+.DS_Store
+**/.DS_Store
+*.swp
+
+node_modules
+atom/node_modules
+atom/vendor/composer
+atom/cache
+atom/log
+atom/uploads
+atom/web/uploads

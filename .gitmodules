@@ -1,0 +1,4 @@
+[submodule "atom"]
+	path = atom
+	url = https://github.com/sevein/atom.git
+	shallow = true

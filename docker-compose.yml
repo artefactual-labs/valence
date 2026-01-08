@@ -1,0 +1,39 @@
+---
+volumes:
+  elasticsearch_data:
+  percona_data:
+
+services:
+  valence:
+    build:
+      context: .
+    env_file: ./atom/docker/etc/environment
+    ports:
+      - "127.0.0.1:14800:8080"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
+    env_file: ./atom/docker/etc/environment
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+  percona:
+    image: percona/percona-server:8.0.44-35.1
+    command: "--character-set-server=utf8mb4 --collation-server=utf8mb4_0900_ai_ci"
+    env_file: ./atom/docker/etc/environment
+    volumes:
+      - percona_data:/var/lib/mysql:rw
+      - ./atom/docker/etc/mysql/mysqld.cnf:/etc/my.cnf.d/mysqld.cnf:ro
+    cap_add:
+      - "SYS_NICE"
+
+  memcached:
+    image: memcached:1.6.40-trixie
+    command: -p 11211 -m 128 -u memcache
+
+  gearmand:
+    image: artefactual/gearmand:1.1.22-alpine
