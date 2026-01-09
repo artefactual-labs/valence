@@ -67,7 +67,7 @@ and integration glue for archival concepts such as metadata.
 graph LR
     Browser --> Valence
     Valence --> Legacy
-    Legacy --> Storage API
+    Legacy --> Storage
 ```
 
 This model introduces meaningful trade-offs. It effectively creates a
