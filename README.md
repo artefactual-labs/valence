@@ -32,6 +32,8 @@ acts as a facade, serving the legacy AtoM application while hosting new
 functionality. This allows modern code to be delivered without being constrained
 by the legacy environment.
 
+![Valence Architecture](diagram.jpg)
+
 This architecture should be understood as transitional. It provides a way to
 keep the existing system running while new capabilities are built around it.
 Valence makes it possible to deliver functionality without modifying large areas
