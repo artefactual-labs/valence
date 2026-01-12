@@ -1,8 +1,8 @@
 # Valence
 
 Valence is an experimental prototype exploring how to evolve a legacy
-application by wrapping it in a modern Go facade. It focuses on building new
-functionality at the edges through an API-driven approach, rather than
+application (AtoM) by wrapping it in a modern Go facade. It focuses on building
+new functionality at the edges through an API-driven approach, rather than
 attempting a full rewrite.
 
 This work is driven by a pragmatic constraint: a wholesale replacement is not
