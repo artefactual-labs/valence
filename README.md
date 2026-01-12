@@ -11,18 +11,6 @@ cost of interrupting incremental delivery make a rewrite impractical in the near
 term. Valence explores how to continue delivering value within these
 constraints.
 
-## Purpose and audience
-
-This project is intended for maintainers, senior engineers, and contributors
-evaluating whether to support or participate in a time-boxed architectural
-experiment to extend a legacy system under real delivery pressure. It documents
-the motivation, scope, and trade-offs of Valence as an experiment, not as a
-mandated architectural direction.
-
-Valence is meant to inform future modernization decisions. It does not commit
-the project to FrankenPHP, Go, or this facade model long-term, and its outcomes
-should be evaluated independently of any broader rewrite strategy.
-
 ## Scope and non-goals
 
 Valence is intentionally limited in scope. It is not a full rewrite, nor an
@@ -62,6 +50,12 @@ Valence provides a pragmatic way to stop writing Symfony 1.x code for core
 business logic. In this model, a dedicated Go API becomes the authoritative
 source for the physical storage domain, while the legacy application acts as UI
 and integration glue for archival concepts such as metadata.
+
+Importantly, Physical Storage is intended to be a standalone system with its
+own API and data model. AtoM is just one possible integration target, not a
+required dependency. Valence exists to explore packaging and integration
+options (including running both apps side-by-side in a single container), not
+to define Physical Storage as an "extension" that depends on AtoM.
 
 ```mermaid
 graph LR
